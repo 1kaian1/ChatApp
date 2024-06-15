@@ -35,7 +35,7 @@ import java.util.Objects;
 public class ChatActivity extends AppCompatActivity {
     String receiverId, receiverName;
     String senderRoom, receiverRoom;
-    Long numMessages;
+    Long numMessages; // *update*
     DatabaseReference dbReferenceSender, dbReferenceReceiver, userReference;
     ImageView sendBtn;
     EditText messageText;
@@ -79,7 +79,7 @@ public class ChatActivity extends AppCompatActivity {
                     MessageModel messageModel = dataSnapshot.getValue(MessageModel.class);
                     messages.add(messageModel);
                 }
-                numMessages = snapshot.getChildrenCount();
+                numMessages = snapshot.getChildrenCount(); // *update*
                 messageAdapter.clear();
                 for (MessageModel message : messages) {
                     messageAdapter.add(message);
@@ -105,7 +105,7 @@ public class ChatActivity extends AppCompatActivity {
     }
 
     private void SendMessage(String message) {
-        Long messageId = numMessages + 1;
+        Long messageId = numMessages + 1; // *update*
         MessageModel messageModel = new MessageModel(messageId, FirebaseAuth.getInstance().getUid(), message);
         messageAdapter.add(messageModel);
         dbReferenceSender.child(String.valueOf(messageId)).setValue(messageModel)
