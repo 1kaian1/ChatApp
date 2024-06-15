@@ -5,6 +5,8 @@ public class MessageModel {
     private String senderId;
     private String message;
 
+    public MessageModel() {}
+
     public MessageModel(Long messageId, String senderId, String message) {
         this.messageId = messageId;
         this.senderId = senderId;
