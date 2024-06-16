@@ -108,7 +108,7 @@ public class ChatActivity extends AppCompatActivity {
         Long messageId = numMessages + 1; // *update*
         MessageModel messageModel = new MessageModel(messageId, FirebaseAuth.getInstance().getUid(), message);
         messageAdapter.add(messageModel);
-        dbReferenceSender.child(String.valueOf(messageId)).setValue(messageModel)
+        dbReferenceSender.child(String.valueOf(messageId)).setValue(messageModel) // *update*
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {}
@@ -119,7 +119,7 @@ public class ChatActivity extends AppCompatActivity {
                         Toast.makeText(ChatActivity.this, "Failed to send message", Toast.LENGTH_SHORT).show();
                     }
                 });
-        dbReferenceReceiver.child(String.valueOf(messageId)).setValue(messageModel);
+        dbReferenceReceiver.child(String.valueOf(messageId)).setValue(messageModel); // *update*
         recyclerView.scrollToPosition(messageAdapter.getItemCount()-1);
         messageText.setText("");
 
